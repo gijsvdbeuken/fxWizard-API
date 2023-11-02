@@ -1,7 +1,22 @@
 import express from "express";
 import { getUsers, getUser, createUser } from "./db.js";
+import cors from "cors";
+
+const PORT = process.env.PORT || 8080;
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 app.use(express.json());
 
@@ -16,10 +31,27 @@ app.get("/users/:id", async (req, res) => {
   res.send(user);
 });
 
-app.get("/users", async (req, res) => {
+app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
   const user = await createUser(name, email, password);
   res.status(201).send(user);
+});
+
+app.post("/register", async (req, res) => {
+  try {
+    const { user, pwd } = req.body;
+
+    const email = "example@mail.com";
+
+    console.log(`Username received from React app: ${user}`);
+    console.log(`Password received from React app: ${pwd}`);
+
+    const newUser = await createUser(user, email, pwd);
+    res.status(201).send(newUser);
+  } catch (error) {
+    console.error("Registration error:", error);
+    res.status(500).json({ message: "Registration Failed" });
+  }
 });
 
 app.use((err, req, res, next) => {
@@ -27,9 +59,6 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
-});
 /*
 const express = require("express");
 const cors = require("cors");
