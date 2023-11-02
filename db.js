@@ -30,8 +30,3 @@ export async function createUser(name, email, password) {
   const id = result.insertId;
   return getUser(id);
 }
-
-/*
-const result = await createUser("Dirk", "dirk@mail.com", "Jkl1@");
-console.log(result);
-*/
