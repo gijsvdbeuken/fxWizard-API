@@ -30,3 +30,11 @@ export async function createUser(name, email, password) {
   const id = result.insertId;
   return getUser(id);
 }
+
+export async function loginTheUser(email, password) {
+  const [rows] = await pool.query(
+    "SELECT * FROM User WHERE Email = ? AND Password = ?",
+    [email, password]
+  );
+  return rows.length === 1;
+}

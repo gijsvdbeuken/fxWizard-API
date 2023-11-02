@@ -24,5 +24,6 @@ app.use(express.json());
 app.get("/users", authController.getAllUsers);
 app.get("/users/:id", authController.getUserById);
 app.post("/register", authController.registerUser);
+app.post("/login", authController.loginUser);
 
 app.use(handleErrors);

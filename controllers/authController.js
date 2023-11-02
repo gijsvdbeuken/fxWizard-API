@@ -1,12 +1,12 @@
-import { getUsers, getUser, createUser } from "../db.js";
+import { loginTheUser, getUsers, getUser, createUser } from "../queries/db.js";
 
 const getAllUsers = async (req, res) => {
   try {
     const users = await getUsers();
     res.send(users);
   } catch (error) {
-    console.error("Registration error:", error);
-    res.status(500).json({ message: "Registration Failed" });
+    console.error("Users retrieve error:", error);
+    res.status(500).json({ message: "Retrievement Failed" });
   }
 };
 
@@ -16,8 +16,8 @@ const getUserById = async (req, res) => {
     const user = await getUser(id);
     res.send(user);
   } catch (error) {
-    console.error("Registration error:", error);
-    res.status(500).json({ message: "Registration Failed" });
+    console.error("User retrieve error:", error);
+    res.status(500).json({ message: "Retrievement Failed" });
   }
 };
 
@@ -35,4 +35,16 @@ const registerUser = async (req, res) => {
   }
 };
 
-export default { getAllUsers, getUserById, registerUser };
+const loginUser = async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const isAuthenticated = await loginTheUser(email, password);
+
+  if (isAuthenticated) {
+    res.status(200).json({ message: "Login successful" });
+  } else {
+    res.status(401).json({ message: "Login failed" });
+  }
+};
+
+export default { loginUser, getAllUsers, getUserById, registerUser };
