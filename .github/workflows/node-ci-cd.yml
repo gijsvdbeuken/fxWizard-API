@@ -27,6 +27,5 @@ jobs:
       - name: Log in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Deploy to production (e.g., using SSH, Kubernetes, or other methods)
+      - name: Deploy to production
         run: |
-          # Your deployment commands go here
