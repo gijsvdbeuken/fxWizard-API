@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build Docker image
-        run: docker build -t your-image-name .
+        run: docker build -t my-app-image .
 
       - name: Push Docker image to Docker Hub (or your container registry)
         run: |
