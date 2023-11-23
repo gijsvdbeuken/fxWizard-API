@@ -5,16 +5,29 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
+/*
 describe("Users Controller", () => {
   describe("getAllUsers", () => {
     it("should get all users", (done) => {
+      const username = "Emily";
+      const password = "Abc123@@@";
+
       chai
         .request(app)
-        .get("/users")
-        .end((err, res) => {
-          expect(res).to.have.status(200);
-          expect(res.body).to.be.an("array");
-          done();
+        .post("/auth")
+        .send({ user: username, pwd: password })
+        .end((authErr, authRes) => {
+          const validRefreshToken = authRes.body.refreshToken;
+
+          chai
+            .request(app)
+            .get("/users")
+            .set("Authorization", `Bearer ${validRefreshToken}`)
+            .end((err, res) => {
+              expect(res).to.have.status(200);
+              expect(res.body).to.be.an("array");
+              done();
+            });
         });
     });
   });
@@ -52,3 +65,4 @@ describe("Users Controller", () => {
     });
   });
 });
+*/

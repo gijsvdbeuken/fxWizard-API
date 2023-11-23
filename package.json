@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.1",
+    "sinon": "^17.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
