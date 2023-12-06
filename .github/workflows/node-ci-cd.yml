@@ -26,10 +26,13 @@ jobs:
         run: npm test
 
       - name: Build Docker image
-        run: docker build -t my-app-image .
+        run: docker build -t fxWizard-image .
 
       - name: Log in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Docker Image to Registry
+        run: docker tag fxWizard-image gijsvdbeuken/fxWizard-image && docker push gijsvdbeuken/fxWizard-image
 
       - name: Deploy to production
         run: |
