@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 /storedValues.txt
+
+/test/authController.test.js
+/test/employeesController.test.js
+/test/logoutController/test.js
