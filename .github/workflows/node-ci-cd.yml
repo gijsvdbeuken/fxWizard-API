@@ -32,7 +32,12 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker Image to Registry
-        run: docker tag fxwizard-image gijsvdbeuken/fxwizard-image && docker push gijsvdbeuken/fxwizard-image
+        run: |
+          if [ $? -eq 0 ]; then
+            docker tag fxwizard-image gijsvdbeuken/fxwizard-image
+            docker push gijsvdbeuken/fxwizard-image
+          fi
 
       - name: Deploy to production
         run: |
+          # Add your deployment steps here
