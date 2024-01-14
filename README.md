@@ -18,6 +18,7 @@ This repository contains the back-end for the fxWizard project, a script tailore
 - Node.js
 - Express
 - MongoDB Atlas
+- Docker
 - Bcrypt
 - Axios
 - Mocha
@@ -40,9 +41,11 @@ npm i
 3. Configure environment variables:
 
 ```javascript
-PORT = 8080;
-MONGODB_URI = xxx;
-SECRET_KEY = xxx;
+ACCESS_TOKEN_SECRET = xxx;
+REFRESH_TOKEN_SECRET = xxx;
+DATABASE_URI = xxx;
+DOCKER_USERNAME = xxx;
+DOCKER_PASSWORD = xxx;
 ```
 
 ## Usage <a name="usage"></a>
