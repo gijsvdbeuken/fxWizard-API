@@ -4,10 +4,12 @@ _Made by Gijs van den Beuken_
 
 ## Table of Contents
 
-- [Introduction](#heading-introduction)
-- [About the Project](#heading-about-the-project)
-- [Setup for the Project](#heading-setup-for-the-project)
-- [Project Content](#heading-project-content)
+- [Introduction](#introduction)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Unit Tests](#unit-tests)
+- [API Endpoints](#api-endpoints)
 
 ## Introduction <a name="introduction"></a>
 
@@ -38,7 +40,7 @@ cd fxWizard-backend
 npm i
 ```
 
-3. Configure environment variables:
+3. Configure the following environment variables:
 
 ```javascript
 ACCESS_TOKEN_SECRET = xxx;
