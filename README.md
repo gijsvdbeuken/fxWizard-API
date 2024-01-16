@@ -6,7 +6,7 @@ _Made by Gijs van den Beuken_
 
 - [Introduction](#introduction)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
+- [Setup](#setup)
 - [Usage](#usage)
 - [Unit Tests](#unit-tests)
 - [API Endpoints](#api-endpoints)
@@ -25,7 +25,7 @@ This repository contains the back-end for the fxWizard project, a script tailore
 - Axios
 - Mocha
 
-## Installation <a name="installation"></a>
+## Setup <a name="setup"></a>
 
 1. Clone the repository:
 
@@ -86,8 +86,8 @@ npm test
 
 ## API Endpoints <a name="api-endpoints"></a>
 
-- '/'
-- '/register' - registers a new user
+- '/' - main entry API
 - '/auth' - authenticates a user
-- '/refresh' - refreshes current session
-- '/logout' - logs user out from current session
+- '/logout' - logs user out
+- '/refresh' - handles refresh token
+- '/register' - registers a new user
