@@ -42,17 +42,29 @@ npm i
 
 3. Create a `.env` file in the root directory of the project.
 
-4. Paste the following snippet into your `.env` file with the corresponding data.
+4. Generate a access token secret by entering the following command in your terminal:
+
+```
+openssl rand -hex 32
+```
+
+5. Also generate a refresh token secret:
+
+```
+openssl rand -hex 32
+```
+
+6. Paste the following snippet into your `.env` file with the corresponding data.
 
 ```dotenv
-ACCESS_TOKEN_SECRET = [Generate a secure token for access.]
-REFRESH_TOKEN_SECRET = [Generate a secure token for refresh.]
+ACCESS_TOKEN_SECRET = [Your previously generated access token secret.]
+REFRESH_TOKEN_SECRET = [Your previously generated refresh token secret.]
 DATABASE_URI = [Provide the URI for your database.]
 DOCKER_USERNAME = [Your Docker Hub username.]
 DOCKER_PASSWORD = [Your Docker Hub password.]
 ```
 
-5. Make sure to add `.env` to your `.gitignore` file to avoid committing sensitive information.
+7. Make sure to add `.env` to your `.gitignore` file to avoid committing sensitive information.
 
 ## Usage <a name="usage"></a>
 
