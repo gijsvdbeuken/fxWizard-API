@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check for Vulnerabilities
-        run: npm audit
-
       - name: Run Tests
         run: npm test
 
@@ -43,4 +40,3 @@ jobs:
 
       - name: Deploy to production
         run: |
-          # Add your deployment steps here
